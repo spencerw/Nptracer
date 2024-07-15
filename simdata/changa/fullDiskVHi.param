@@ -1,0 +1,39 @@
+achInFile       = fullDiskVHif.ic
+achOutName      = fullDiskVHi
+iOutInterval    = 1000
+iLogInterval    = 1000
+iCheckInterval  = 1000
+bDoIOrderOutput = 1
+bParaWrite      = 0
+
+bDoDensity      = 0
+bDoDark         = 1
+bDoGravity      = 1
+bCollision      = 1
+iCollModel      = 0
+bDelEjected     = 1
+
+bCentralBody    = 1
+dCentMass       = 0.08
+dCentRad        = 0.000465047 # 0.1 solar radius
+
+bDoGasDrag      = 1
+dRadInfGas      = 6.0
+dSigma0         = 136
+dT0             = 148
+dMu             = 2.34
+dCD             = 1
+dP              = 1.5
+dQ              = 0.58
+
+dKpcUnit = 4.8481368e-09
+dMsolUnit = 1
+# Time unit = 1 year / 2*pi
+
+nSteps          = 1000000
+dDelta          = 0.008213552361396302
+bGravStep       = 1
+bKepStep        = 1
+bEpsAccStep     = 0
+bSkipP0         = 0 
+bCollStep       = 0
