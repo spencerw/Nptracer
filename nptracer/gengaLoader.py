@@ -4,6 +4,13 @@ from DataLoader import DataLoader
 
 class GengaLoader(DataLoader):
     def __init__(self, path_to_sim):
+        """GengaLoader
+        
+        Initializes the GengaLoader with the given path to simulation.
+
+        Args:
+            path_to_sim (str): Path to the simulation files.
+        """
         super().__init__()
 
         self.path_to_sim = path_to_sim
@@ -12,6 +19,13 @@ class GengaLoader(DataLoader):
         self.cols_to_use = self.file_columns[0:10]
 
     def read_snaps(self):
+        """Read Snapshots
+        
+        Reads the snapshot files and concatenates their data into a DataFrame.
+
+        Returns:
+            pd.DataFrame: DataFrame containing the concatenated data from all snapshot files.
+        """
         files_to_read = gl.glob(self.path_to_sim + '*[0-9]*[0-9].dat')[0:10]
 
         alldata = []

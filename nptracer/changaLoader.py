@@ -5,13 +5,34 @@ import numpy as np
 from DataLoader import DataLoader
 
 class ChangaLoader(DataLoader):
+    """ChangaLoader
+    
+    A class to load data from Changa simulations.
+
+    Attributes:
+        path_to_sim (str): Path to the simulation files.
+    """
     def __init__(self, path_to_sim):
+        """ChangaLoader
+        
+        Initializes the ChangaLoader with the given path to simulation.
+
+        Args:
+            path_to_sim (str): Path to the simulation files.
+        """
         super().__init__()
 
         self.path_to_sim = path_to_sim
         self.dDelta = self.read_dDelta()
         
     def read_dDelta(self):
+        """Read the dDelta value
+        
+        Reads the dDelta value from the parameter file.
+
+        Returns:
+            float: The dDelta value extracted from the parameter file.
+        """
         files_to_read = gl.glob(self.path_to_sim + '*.param')
         with open(files_to_read[0], 'r') as f:
             lines = f.readlines()
@@ -22,6 +43,13 @@ class ChangaLoader(DataLoader):
         return dDelta
         
     def read_snaps(self):
+        """Read snapshots
+        
+        Reads the snapshot files and concatenates their data into a DataFrame.
+
+        Returns:
+            pd.DataFrame: DataFrame containing the concatenated data from all snapshot files.
+        """
         files_to_read = gl.glob(self.path_to_sim + '*.*[0-9]')
         alldata = []
         
