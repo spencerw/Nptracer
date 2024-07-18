@@ -1,6 +1,6 @@
 import glob as gl
 import pandas as pd
-from nptracer.dataLoader import DataLoader
+from nptracer.DataLoader import DataLoader
 
 class GengaLoader(DataLoader):
     def __init__(self, path_to_sim):
@@ -26,7 +26,7 @@ class GengaLoader(DataLoader):
         Returns:
             pd.DataFrame: DataFrame containing the concatenated data from all snapshot files.
         """
-        files_to_read = gl.glob(self.path_to_sim + '*[0-9]*[0-9].dat')[0:10]
+        files_to_read = gl.glob(self.path_to_sim + '*[0-9]*[0-9].dat')
 
         alldata = []
 

@@ -17,14 +17,26 @@ class DataAnalyzer:
         
         self.data = pd.concat([data.reset_index(drop=True), 
                                kep_df.reset_index(drop=True)], axis=1)
+        
+        self.t_final = self.data['t'].max()
+        self.ids_final = self.data[self.data['t'].values == self.t_final]['id'].values
 
-    def get_time_prop(self, prop, id):
+    def get_time_prop(self, id, prop_name):
 
         #return np array of times, np array of property at each time
-        pass
 
-    def get_time_max(self, prop):
+        df_id = self.data.query(f'id == {id}')
+        time = df_id['t'].values
+        prop = df_id[prop_name].values
 
+        return time, prop
+
+    def get_time_max(self, prop_name):
         #return np array of times, np array maximum of property at each time
-        pass
+        df_max_prop = self.data.groupby('t')[prop_name].max().reset_index()
+
+        time = df_max_prop['t'].values
+        max_prop = df_max_prop[prop_name].values
+
+        return time, max_prop
         
