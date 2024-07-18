@@ -23,6 +23,18 @@ class ChangaLoader(DataLoader):
         super().__init__()
 
         self.path_to_sim = path_to_sim
+
+        # Get the central mass from the .param file
+        filename = gl.glob(os.path.join(self.path_to_sim, '*.param'))
+        with open(self.path_to_sim + 'param.dat', 'r') as file:
+            for line in file:
+                if 'dCentMass' in line:
+                    # Split the line by '=' and strip any whitespace
+                    parts = line.split('=')
+                    # Convert the extracted part to a float and return it
+                    self.central_mass = float(parts[1].strip())
+                    break
+
         self.dDelta = self.read_dDelta()
         
     def read_dDelta(self):

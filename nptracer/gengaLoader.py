@@ -18,6 +18,16 @@ class GengaLoader(DataLoader):
                          'amin1', 'amax1', 'emin1', 'emax1', 'aecount1', 'aecountT1', 'enccountT1', 'test1']
         self.cols_to_use = self.file_columns[0:10]
 
+        # Get the central mass from the .par file
+        with open(self.path_to_sim + 'param.dat', 'r') as file:
+            for line in file:
+                if 'Central Mass' in line:
+                    # Split the line by '=' and strip any whitespace
+                    parts = line.split('=')
+                    # Convert the extracted part to a float and return it
+                    self.central_mass = float(parts[1].strip())
+                    break
+
     def read_snaps(self):
         """Read Snapshots
         

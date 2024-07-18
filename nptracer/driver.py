@@ -19,4 +19,4 @@ class Driver:
         print('Loaded table with ' + str(len(self.data)) + ' rows and ' + \
               str(len(self.data.columns)) + ' columns')
 
-        self.analyzer = DataAnalyzer(self.data, 0.08)
+        self.analyzer = DataAnalyzer(self.data, loader.central_mass)
