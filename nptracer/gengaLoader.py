@@ -5,10 +5,11 @@ from nptracer.DataLoader import DataLoader
 class GengaLoader(DataLoader):
     def __init__(self, path_to_sim):
         """GengaLoader
-        
+            
+        Initializes the GengaLoader with the given path to simulation.
         Initializes the GengaLoader with the given path to simulation.
 
-        Args:
+        Attributes:
             path_to_sim (str): Path to the simulation files.
         """
         super().__init__()
