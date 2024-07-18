@@ -3,15 +3,14 @@ import pandas as pd
 from nptracer.DataLoader import DataLoader
 
 class GengaLoader(DataLoader):
-    def __init__(self, path_to_sim):
-        """GengaLoader
+    """GengaLoader
             
-        Initializes the GengaLoader with the given path to simulation.
-        Initializes the GengaLoader with the given path to simulation.
+    Initializes the GengaLoader with the given path to simulation.
 
-        Attributes:
-            path_to_sim (str): Path to the simulation files.
-        """
+    Attributes:
+        path_to_sim (str): Path to the simulation files.
+    """
+    def __init__(self, path_to_sim):
         super().__init__()
 
         self.path_to_sim = path_to_sim
