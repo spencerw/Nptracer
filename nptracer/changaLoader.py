@@ -25,7 +25,7 @@ class ChangaLoader(DataLoader):
         self.path_to_sim = path_to_sim
 
         # Get the central mass from the .param file
-        filename = gl.glob(os.path.join(self.path_to_sim, '*.param'))
+        filename = gl.glob(self.path_to_sim + '*.param')
         with open(self.path_to_sim + 'param.dat', 'r') as file:
             for line in file:
                 if 'dCentMass' in line:
