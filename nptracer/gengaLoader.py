@@ -1,6 +1,6 @@
 import glob as gl
 import pandas as pd
-from nptracer.DataLoader import DataLoader
+from nptracer.dataLoader import DataLoader
 
 class GengaLoader(DataLoader):
     """GengaLoader
