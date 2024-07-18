@@ -10,6 +10,8 @@ Welcome to Nptracer's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   dataLoader.rst
+   gengaLoader.rst
    changaLoader.rst
 
 Indices and tables
