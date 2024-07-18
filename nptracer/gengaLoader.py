@@ -1,6 +1,6 @@
 import glob as gl
 import pandas as pd
-from DataLoader import DataLoader
+from nptracer.dataLoader import DataLoader
 
 class GengaLoader(DataLoader):
     def __init__(self, path_to_sim):
