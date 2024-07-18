@@ -2,7 +2,7 @@ import pynbody
 import glob as gl
 import pandas as pd
 import numpy as np
-from nptracer.dataLoader import DataLoader
+from nptracer.DataLoader import DataLoader
 
 class ChangaLoader(DataLoader):
     """ChangaLoader
