@@ -7,3 +7,10 @@ To install the latest release, run
 
 ```bash
 pip install Nptracer
+```
+
+We recommend cloning the repository to have the example dataset to test the tutorial.
+
+```bash
+git clone https://github.com/spencerw/Nptracer.git
+pip install -e nptracer
