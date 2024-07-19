@@ -7,7 +7,7 @@ name = "Nptracer"
 version = "0.0.1"
 
 dependencies = [
- "numpy","pandas","pynbody"
+ "numpy","pandas","pynbody","KeplerOrbit"
 ]
 
 [tool.setuptools]

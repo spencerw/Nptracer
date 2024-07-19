@@ -2,7 +2,7 @@ import pynbody
 import glob as gl
 import pandas as pd
 import numpy as np
-from DataLoader import DataLoader
+from nptracer.dataLoader import DataLoader
 
 class ChangaLoader(DataLoader):
     """ChangaLoader
@@ -23,6 +23,18 @@ class ChangaLoader(DataLoader):
         super().__init__()
 
         self.path_to_sim = path_to_sim
+
+        # Get the central mass from the .param file
+        filename = gl.glob(self.path_to_sim + '*.param')
+        with open(filename[0], 'r') as file:
+            for line in file:
+                if 'dCentMass' in line:
+                    # Split the line by '=' and strip any whitespace
+                    parts = line.split('=')
+                    # Convert the extracted part to a float and return it
+                    self.central_mass = float(parts[1].strip())
+                    break
+
         self.dDelta = self.read_dDelta()
         
     def read_dDelta(self):
@@ -64,7 +76,7 @@ class ChangaLoader(DataLoader):
             r = 2*snap['eps'].view(np.ndarray).reshape(-1, 1)          
             t = step_num*self.dDelta*np.ones((len(snap), 1))
             
-            snaps = np.concatenate((t, id, pos, vel, mass, r), axis=1)
+            snaps = np.concatenate((t, id, mass, r, pos, vel), axis=1)
             df_snaps = pd.DataFrame(snaps, columns=self.columns)
             alldata.append(df_snaps)
             
