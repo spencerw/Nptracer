@@ -31,12 +31,19 @@ class DataAnalyzer:
 
         return time, prop
 
-    def get_time_max(self, prop_name):
+    def get_time_func(self, prop_name, func='max'):
         #return np array of times, np array maximum of property at each time
-        df_max_prop = self.data.groupby('t')[prop_name].max().reset_index()
+        if func == 'max':
+            df_func_prop = self.data.groupby('t')[prop_name].max().reset_index()
+        elif func == 'min':
+            df_func_prop = self.data.groupby('t')[prop_name].min().reset_index()
+        elif func == 'mean':
+            df_func_prop = self.data.groupby('t')[prop_name].mean().reset_index()
+        elif func == 'median':
+            df_func_prop = self.data.groupby('t')[prop_name].median().reset_index()
 
-        time = df_max_prop['t'].values
-        max_prop = df_max_prop[prop_name].values
+        time = df_func_prop['t'].values
+        func_prop = df_func_prop[prop_name].values
 
-        return time, max_prop
+        return time, func_prop
         

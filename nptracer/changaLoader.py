@@ -26,7 +26,7 @@ class ChangaLoader(DataLoader):
 
         # Get the central mass from the .param file
         filename = gl.glob(self.path_to_sim + '*.param')
-        with open(self.path_to_sim + 'param.dat', 'r') as file:
+        with open(filename[0], 'r') as file:
             for line in file:
                 if 'dCentMass' in line:
                     # Split the line by '=' and strip any whitespace
@@ -76,7 +76,7 @@ class ChangaLoader(DataLoader):
             r = 2*snap['eps'].view(np.ndarray).reshape(-1, 1)          
             t = step_num*self.dDelta*np.ones((len(snap), 1))
             
-            snaps = np.concatenate((t, id, pos, vel, mass, r), axis=1)
+            snaps = np.concatenate((t, id, mass, r, pos, vel), axis=1)
             df_snaps = pd.DataFrame(snaps, columns=self.columns)
             alldata.append(df_snaps)
             
