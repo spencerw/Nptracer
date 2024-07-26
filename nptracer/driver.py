@@ -17,14 +17,16 @@ class Driver:
 
         if format == 'genga':
             loader = GengaLoader(self.path_to_sim)
-            self.data = loader.read_snaps()
+            self.snap_data = loader.read_snaps()
+            self.coll_data = loader.read_coll()
         elif format == 'changa':
             loader = ChangaLoader(self.path_to_sim)
-            self.data = loader.read_snaps()
+            self.snap_data = loader.read_snaps()
+            self.coll_data = loader.read_coll()
         else:
             raise Exception(format + ' is not a valid data format')
         
-        print('Loaded table with ' + str(len(self.data)) + ' rows and ' + \
-              str(len(self.data.columns)) + ' columns')
+        print('Loaded table with ' + str(len(self.snap_data)) + ' rows and ' + \
+              str(len(self.snap_data.columns)) + ' columns')
 
-        self.analyzer = DataAnalyzer(self.data, loader.central_mass)
+        self.analyzer = DataAnalyzer(self.snap_data, self.coll_data, loader.central_mass)

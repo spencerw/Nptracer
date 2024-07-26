@@ -53,6 +53,23 @@ class ChangaLoader(DataLoader):
                     dDelta = float(line.split('=')[1])
                     break
         return dDelta
+
+    def read_coll(self):
+        """Read the collision log file and load the results into a dataframe.
+
+        Returns:
+            pd.DataFrame: DataFrame containing all collision events in the simulation.
+        """
+
+        # TODO add collision file to example ChaNGa data
+        return []
+
+        filename = gl.glob(self.path_to_sim + 'collision.log')
+        nam = ['time', 'collType', 'iord1', 'iord2', 'm1', 'm2', 'r1', 'r2', 'x1x', 'x1y', 'x1z', 'x2x', 'x2y',\
+               'x2z',  'v1x', 'v1y', 'v1z', 'v2x', 'v2y', 'v2z', 'w1x', 'w1y', 'w1z', 'w2x', 'w2y', 'w2z']
+        df_coll = pd.read_csv(filename, names=nam, sep=' ', index_col=False)
+
+        return df_coll
         
     def read_snaps(self):
         """Read snapshots
