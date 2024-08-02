@@ -1,5 +1,6 @@
 from nptracer.gengaLoader import GengaLoader
 from nptracer.changaLoader import ChangaLoader
+from nptracer.reboundLoader import ReboundLoader
 from nptracer.dataAnalyzer import DataAnalyzer
 
 class Driver:
@@ -17,14 +18,15 @@ class Driver:
 
         if format == 'genga':
             loader = GengaLoader(self.path_to_sim)
-            self.snap_data = loader.read_snaps()
-            self.coll_data = loader.read_coll()
         elif format == 'changa':
             loader = ChangaLoader(self.path_to_sim)
-            self.snap_data = loader.read_snaps()
-            self.coll_data = loader.read_coll()
+        elif format == 'rebound':
+            loader = ReboundLoader(self.path_to_sim)
         else:
             raise Exception(format + ' is not a valid data format')
+
+        self.snap_data = loader.read_snaps()
+        self.coll_data = loader.read_coll()
         
         print('Loaded table with ' + str(len(self.snap_data)) + ' rows and ' + \
               str(len(self.snap_data.columns)) + ' columns')

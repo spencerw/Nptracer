@@ -3,3 +3,4 @@ pynbody
 pandas
 numpy
 nptracer
+rebound
