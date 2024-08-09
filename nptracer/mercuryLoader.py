@@ -41,7 +41,7 @@ class MercuryLoader(DataLoader):
                     self.den[pname] = float(d_value.replace('D', 'e'))
 
     def read_coll(self):
-        # TODO
+        print("Warning: Mercury does not support tracking of collision information")
         return None
 
     def read_snaps(self):
@@ -63,9 +63,8 @@ class MercuryLoader(DataLoader):
             df_particle = pd.read_csv(fn, delim_whitespace=True, skiprows=4, header=None, \
                                       names=colnames)
             # Particles in mercury have names
-            # Use the filename as the id here
-            id = fn.split('.')[0].split('\\')[-1]
-            df_particle['id'] = id
+            pname = fn.split('.')[0].split('\\')[-1]
+            df_particle['name'] = pname
 
             if id in self.den:
                 density = self.den[id]
@@ -82,6 +81,11 @@ class MercuryLoader(DataLoader):
         df['node'] /= 2*np.pi
         df['peri'] /= 2*np.pi
         df['M'] /= 2*np.pi
+
+        # Using a string for the id is going to cause problems elsewhere
+        # So map this to an integer
+        name_to_id = {name: idx for idx, name in enumerate(df['name'].unique(), start=0)}
+        df['id'] = df['name'].map(name_to_id)
 
         # Mercury provides keplerian orbital elements
         # Need to convert to cartesian
