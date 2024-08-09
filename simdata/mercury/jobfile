@@ -1,0 +1,14 @@
+#!/bin/bash
+#SBATCH --job-name=mercury
+#SBATCH --partition=shared
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=10G
+#SBATCH --account=was215
+#SBATCH --no-requeue
+#SBATCH -t 48:00:00
+#SBATCH --mail-user=scw7@uw.edu
+#SBATCH --mail-type=ALL
+
+./mercury6

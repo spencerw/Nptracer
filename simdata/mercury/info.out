@@ -1,0 +1,67 @@
+
+           Integration parameters
+           ----------------------
+
+   Algorithm: Hybrid symplectic integrator (mixed coordinates)
+
+   Integration start epoch:               0.0000000 days 
+   Integration stop  epoch:       365250000.0000000
+   Output interval:                 1826250.000
+   Output precision:                 high
+
+   Initial timestep:                0.050 days 
+   Accuracy parameter:              1.0000E-12
+   Central mass:                    8.0000E-02 solar masses
+   J_2:                              0.0000E+00
+   J_4:                              0.0000E+00
+   J_6:                              0.0000E+00
+   Ejection distance:               1.0000E+02 AU
+   Radius of central body:          5.0000E-05 AU
+
+   Includes collisions:                 yes
+   Includes fragmentation:              no 
+   Includes relativity:                 no 
+   Includes user-defined force routine: no 
+
+   Number of Big bodies:       24
+   Number of Small bodies:      0
+
+
+           Integration details
+           -------------------
+
+   Initial energy:           -7.18515E-09 solar masses AU^2 day^-2 
+   Initial angular momentum:  2.34008E-08 solar masses AU^2 day^-1 
+
+ WARNING: No Small bodies are present.
+
+   Integrating massive bodies and particles up to the same epoch.
+
+   Beginning the main integration.
+
+ BODY12                    was hit by BODY0                     at           0.009 years
+ BODY17                    was hit by BODY19                    at           0.022 years
+ BODY12                    was hit by BODY5                     at           6.543 years
+ BODY12                    was hit by BODY8                     at          20.358 years
+ BODY6                     was hit by BODY2                     at          44.727 years
+ BODY23                    was hit by BODY1                     at          79.167 years
+ BODY15                    was hit by BODY10                    at         197.641 years
+ BODY16                    was hit by BODY6                     at         454.062 years
+ BODY17                    was hit by BODY13                    at        1009.370 years
+ BODY23                    was hit by BODY11                    at        1882.198 years
+ BODY12                    was hit by BODY14                    at        1978.224 years
+ BODY7                     was hit by BODY18                    at        2257.375 years
+ BODY15                    was hit by BODY22                    at        3743.141 years
+ BODY15                    was hit by BODY21                    at        4229.751 years
+ BODY23                    was hit by BODY9                     at        5225.931 years
+ BODY20                    was hit by BODY3                     at        7641.254 years
+ BODY17                    was hit by BODY4                     at       33416.149 years
+ BODY20                    was hit by BODY16                    at       53384.776 years
+
+   Integration complete.
+
+   Fractional energy change due to integrator:   6.38705E-06
+   Fractional angular momentum change:           9.97846E-11
+
+   Fractional energy change due to collisions/ejections:  1.11719E-02
+   Fractional angular momentum change:                    0.00000E+00
