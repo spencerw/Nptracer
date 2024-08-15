@@ -60,6 +60,14 @@ class ReboundLoader(DataLoader):
                 for idx, attr in enumerate(self.cols_to_use[1:]):
                     row[idx + 1] = getattr(part, attr)
 
+                # p, v is barycentric so we need to convert to heliocentric
+                row[4] -= sim.particles[0].x
+                row[5] -= sim.particles[0].y
+                row[6] -= sim.particles[0].z
+                row[7] -= sim.particles[0].vx
+                row[8] -= sim.particles[0].vy
+                row[9] -= sim.particles[0].vz
+
                 alldata = np.append(alldata, [row], axis=0)
 
         df_alldata = pd.DataFrame(alldata, columns=self.cols_to_use)
