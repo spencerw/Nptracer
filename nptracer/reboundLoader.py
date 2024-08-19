@@ -16,7 +16,7 @@ class ReboundLoader(DataLoader):
         super().__init__()
 
         self.path_to_sim = path_to_sim
-        self.cols_to_use = ['t', 'index', 'm', 'r', 'x', 'y', 'z', \
+        self.cols_to_use = ['t', 'hash', 'm', 'r', 'x', 'y', 'z', \
                         'vx', 'vy', 'vz']
         self.simarchive = rebound.Simulationarchive(self.path_to_sim)
 
@@ -57,8 +57,11 @@ class ReboundLoader(DataLoader):
                 row[0] = sim.t
 
                 # Column
-                for idx, attr in enumerate(self.cols_to_use[1:]):
-                    row[idx + 1] = getattr(part, attr)
+                for idx, attr in enumerate(self.cols_to_use[2:]):
+                    row[idx + 2] = getattr(part, attr)
+
+                # Particle IDs are stored as a hash
+                row[1] = part.hash.value
 
                 # p, v is barycentric so we need to convert to heliocentric
                 row[4] -= sim.particles[0].x
