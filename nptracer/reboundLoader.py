@@ -33,7 +33,7 @@ class ReboundLoader(DataLoader):
         return self.simarchive
 
     def read_coll(self):
-        # TODO
+        print("Warning: Rebound does not support tracking of collision information")
         return None
 
     def read_snaps(self):
